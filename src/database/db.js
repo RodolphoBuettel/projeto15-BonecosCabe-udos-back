@@ -15,3 +15,5 @@ try {
 
 const db = mongoClient.db("bonecosCabecudos");
 export const products = db.collection("products");
+export const users = db.collections("users");
+export const sessions = db.collection("sessions");
