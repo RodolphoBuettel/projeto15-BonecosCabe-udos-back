@@ -15,3 +15,17 @@ export async function signUp(req, res) {
   }
 }
 
+export async function signIn(req, res) {
+  const user = res.locals.user;
+  
+  const token = uuidV4();
+
+  try {
+    await sessions.insertOne({ token, userId: user._id });
+    res.send({ token });
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
+}
+
