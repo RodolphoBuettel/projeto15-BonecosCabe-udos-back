@@ -4,6 +4,6 @@ import registeredProducts from "../controllers/productsControllers.js";
 
 const router = Router();
 
-router.get("/products", authRoutesValidation, registeredProducts);
+router.get("/products", registeredProducts);
 
 export default router;
