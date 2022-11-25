@@ -1,4 +1,4 @@
-import { sessions, users } from "../database/db.js";
+import { sessions, users } from "../database/db.js"
 import bcrypt from "bcrypt";
 import { v4 as uuidV4 } from "uuid";
 
