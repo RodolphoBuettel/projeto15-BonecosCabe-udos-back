@@ -1,5 +1,5 @@
 import { sessions, users } from "../database/db.js";
-import { userSchema } from "../models/users.model.js";
+import { userSchema } from "../models/usersModel.js";
 import bcrypt from "bcrypt";
 
 export function userSchemaValidation(req, res, next) {
