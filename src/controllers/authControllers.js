@@ -20,9 +20,11 @@ export async function signIn(req, res) {
   
   const token = uuidV4();
 
+  delete user.password;
+  
   try {
     await sessions.insertOne({ token, userId: user._id });
-    res.send({ token });
+    res.send({ token, user });
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
