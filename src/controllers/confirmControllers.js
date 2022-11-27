@@ -7,15 +7,20 @@ export async function confirmInformations(req, res) {
     const user = res.locals.user;
     const idUser = user._id;
 
-    const { error } = informationSchema.validate(info, { abortEarly: false });
+    const { error } = informationSchema.validate(informations, { abortEarly: false });
   
     if (error) {
       const errors = error.details.map((detail) => detail.message);
       return res.status(400).send(errors);
     }
 
+    const orderPlaced = {
+        informations,
+        idUser
+    }
+
     try {
-        await finishOrders.insertOne({ ...informations, idUser });
+        await finishOrders.insertOne(orderPlaced);
         res.sendStatus(201);
     } catch (err) {
         console.log(err);
