@@ -10,13 +10,13 @@ export function cartSchemaValidation(req, res, next) {
   const newCart = {
     items: cart,
     userId: user._id,
-    datetime: Date.now()
   }
 
   const { error } = cartSchema.validate(newCart, { abortEarly: false });
 
   if (error) {
     const errors = error.details.map((detail) => detail.message);
+    console.log("api: parei na validação do schemacart ")
     return res.status(400).send(errors);
   }
 
