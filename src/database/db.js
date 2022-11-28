@@ -2,8 +2,8 @@ import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 dotenv.config();
 
-//const mongoClient = new MongoClient(process.env.MONGO_URI);
-const mongoClient = new MongoClient("mongodb+srv://admin:admin@store.ghxwrzw.mongodb.net/?retryWrites=true&w=majority");
+const mongoClient = new MongoClient(process.env.MONGO_URI);
+//const mongoClient = new MongoClient("mongodb+srv://admin:admin@store.ghxwrzw.mongodb.net/?retryWrites=true&w=majority");
 
 
 try {
