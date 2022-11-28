@@ -17,10 +17,8 @@ export async function findCart(req, res) {
 
   try {
     const cart = await carts
-      .findOne({ user: user._id })
-      .toArray().sort({ datetime: -1});
+      .findOne({ userId: user._id });
 
-    
     res.send({ cart });
   } catch (err) {
     console.log(err);
